@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: recipient
+spec:
+  containers:
+  - name: recipient-service
+    image: paulonova/recipient-service:v0.0.1
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recipient
+spec:
+  selector:
+    app: recipient
+  ports:
+    - name: recipient
+      protocol: TCP
+      port: 3002
