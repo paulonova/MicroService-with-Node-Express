@@ -9,7 +9,8 @@
 #### DOCKER
 
 - To save the images in Docker Repository, yu need to create the repository in DockerHub.
-- will be like  username/repository-name - example: paulonova/recipient-service
+- will be like  username/repository-name
+- Example: paulonova/recipient-service
 - The "username" needs to be set before the / when you build the image, otherwise it will be an error of credentials.
 
 ## To generate the Image in docker
@@ -101,3 +102,17 @@ npm install typescript ts-node-dev @types/express
 ```
 tsc -init
 ```
+
+## Kubernet to deploy in to MongoDB
+
+- Link: https://hub.docker.com/_/mongo
+
+* Create a mongo service recipient-mongo-depl.yaml
+* kubectl apply -f recipient-mongo-depl.yaml
+
+* kubectl logs <pod name>
+
+
+##
+
+* Stopped at 27:00

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipient-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recipient-mongo
+  template:
+    metadata:
+      labels:
+        app: recipient-mongo
+    spec:
+      containers:
+        - name: recipient-mongo
+          image: mongo
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: recipient-mongo-service
+spec:
+  selector:
+    app: recipient-mongo
+  ports:
+    - name: database
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
